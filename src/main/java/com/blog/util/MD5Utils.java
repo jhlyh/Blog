@@ -3,7 +3,7 @@ package com.blog.util;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-
+//加密
 public class MD5Utils {
 
     public static String code(String str) {
