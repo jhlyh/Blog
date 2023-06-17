@@ -20,10 +20,12 @@
             <a href="#" th:href="@{/about}" class="item m-mobile"><i class="info icon"></i>关于我</a>
 
             <div class="right item">
-                <div class="ui icon  input m-mobile">
-                    <input type="text" placeholder="Search....">
-                    <i class="search link icon"></i>
-                </div>
+                <form name="search" action="#" th:action="@{/search}" method="post" target="_blank">
+                    <div class="ui icon  input m-mobile">
+                        <input type="text" name="query" placeholder="Search....">
+                        <i onclick="document.forms['search'].submit()" class="search link icon"></i>
+                    </div>
+                </form>
                 <!--
                <a href="#" target="ui black icon button"><i class="sidebar icon"></i></a>
                    -->

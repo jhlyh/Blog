@@ -40,19 +40,19 @@
                     <h3 class="ui teal header">归档</h3>
                 </div>
                 <div class="right aligned column">
-                    共<h3 class="ui orange header m-inline-block m-text-thin">1</h3>篇博客
+                    共<h3 class="ui orange header m-inline-block m-text-thin" th:text="${page.totalElements}">
+                    1</h3>篇
                 </div>
             </div>
         </div>
         <h2 class="ui center aligned header">2023</h2>
         <div class="ui fluid vertical menu">
-            <a href="#" target="_blank" class="item">
-                    <span>
-                        <i class="mini teal circle icon"></i>  jhl
-                        <div class="ui  teal basic left pointing label m-padded-tb-mini">3月02</div>
-                    </span>
-                <div class="ui  orange basic left pointing label m-padded-tb-mini">原创</div>
-            </a>
+            <div class="ui segment" th:each="blog : ${recommendblog.content}">
+                <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-black m-text-thin"
+                   th:text="${blog.title}">用户故事(User Story) </a>
+                <img src="https://tupian.qqw21.com/article/UploadPic/2021-1/20211722215735941.jpg"
+                     alt="" class="ui avatar image right">
+            </div>
         </div>
 
     </div>

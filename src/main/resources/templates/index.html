@@ -54,7 +54,7 @@
                 <!--content-->
                 <div class="ui attached  segment ">
                     <div class="ui  padded  vertical segment m-padded-tb-large">
-                        <div class="ui  mobile reversed stackable grid" th:each="blog : ${page.content}">
+                        <div class="ui mobile reversed stackable grid" th:each="blog : ${page.content}">
                             <div class="eleven wide column">
                                 <h3 class="ui header"><a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank"
                                                          class="m-black"
@@ -118,7 +118,7 @@
                                 <i class="idea icon"></i>分类
                             </div>
                             <div class="right aligned column">
-                                <a href="#" target="_blank">more<i class="angle double right icon"></i> </a>
+                                <a href="#" th:href="@{/type}">more<i class="angle double right icon"></i> </a>
                             </div>
                         </div>
                     </div>
@@ -144,7 +144,7 @@
                                 <i class="target icon"></i>标签
                             </div>
                             <div class="right aligned column">
-                                <a href="#" target="_blank">more<i class="angle double right icon"></i> </a>
+                                <a href="#" th:href="@{/tags}">more<i class="angle double right icon"></i> </a>
                             </div>
                         </div>
                     </div>

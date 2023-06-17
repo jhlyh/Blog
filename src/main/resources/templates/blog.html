@@ -54,7 +54,9 @@
                         <button class="ui mini icon button"><i class="weixin icon"></i></button>
                     </div>
                     <div id="qrcode" class="ui wechat-qr flowing popup transition hidden">
-                        <img class="ui  rounded image" alt="" src="images/wechat.jpg" style="width: 150px">
+                        <img class="ui  rounded image" alt=""
+                             src="https://tupian.qqw21.com/article/UploadPic/2021-1/20211722215735941.jpg"
+                             style="width: 150px">
                     </div>
                 </div>
             </div>
@@ -84,11 +86,13 @@
                 <div class="ui orange basic label">
                     <div class="ui images">
                         <div class="image">
-                            <img src="images/chatpay.jpg" alt="" class="ui rounded bordered image" style="width: 120px"
+                            <img src="https://tupian.qqw21.com/article/UploadPic/2021-1/20211722215735941.jpg" alt=""
+                                 class="ui rounded bordered image" style="width: 120px"
                                  height="150px">
                         </div>
                         <div class="image">
-                            <img src="images/zhifubao.jpg" alt="" class="ui rounded bordered image" style="width: 120px"
+                            <img src="https://tupian.qqw21.com/article/UploadPic/2021-1/20211722215735941.jpg" alt=""
+                                 class="ui rounded bordered image" style="width: 120px"
                                  height="150px">
                         </div>
                     </div>
@@ -115,7 +119,7 @@
         <!--    留言       -->
         <div class="ui bottom attached segment">
             <div class="ui teal segment">
-                <div class="ui threaded comments">
+                <div id="allcomment" class="ui threaded comments">
                     <h3 class="ui dividing header">Comments</h3>
                     <div class="comment">
                         <a class="avatar">
@@ -138,32 +142,32 @@
 
                 <div class="ui form">
                     <div class="field ">
-                        <textarea name="content" placeholder="请输入评论信息..."></textarea>
+                        <textarea id="inputContent" name="content" placeholder="请输入评论信息..."></textarea>
                     </div>
                     <div class="fields">
                         <div class="field">
                             <div class="ui left icon input">
                                 <i class="user icon"></i>
-                                <input type="text" name="nickname" placeholder="姓名">
+                                <input id="inputName" type="text" name="nickname" placeholder="姓名">
                             </div>
                         </div>
                         <div class="field">
                             <div class="ui left icon input">
                                 <i class="mail icon"></i>
-                                <input type="text" name="email" placeholder="邮箱">
+                                <input id="inputEmail" type="text" name="email" placeholder="邮箱">
                             </div>
                         </div>
                         <div class="field">
-                            <button class="ui teal button"><i class="edit icon"></i> 发布</button>
+                            <button id="submit" class="ui teal button"><i class="edit icon"></i> 发布</button>
                         </div>
                     </div>
                 </div>
 
             </div>
         </div>
+        <!-- 回帖列表 -->
     </div>
 </div>
-
 
 <!-- 底部footer-->
 <footer class="ui inverted vertical segment m-padded-tb-massive">
@@ -213,11 +217,43 @@
         on: 'click',
         position: 'bottom center'
     });
+    let data = JSON.parse(localStorage.getItem("${blog.title}") || "[]")
+
+    function addCom(val) {
+        $('#allcomment').append(val)
+    }
+
+    for (let d of data) {
+        addCom(d)
+    }
+    $('#submit').click(function () {
+        let html = `<div class="comment">
+                        <a class="avatar">
+                            <img src="https://tupian.qqw21.com/article/UploadPic/2021-1/20211722215735941.jpg">
+                        </a>
+                        <div class="content">
+                            <a class="author">${$('#inputName').val()}</a>
+                            <div class="metadata">
+                                <span class="date">Today at 5:42PM</span>
+                            </div>
+                            <div class="text">
+                                ${$('#inputContent').val()}
+                            </div>
+                            <div class="actions">
+                                <a class="reply">回复</a>
+                            </div>
+                        </div>
+                    </div>`
+        addCom(html)
+        data.push(html)
+        localStorage.setItem("${blog.title}", JSON.stringify(data))
+    });
     $('.wechat').popup({
         popup: $('.wechat-qr'),
         position: 'bottom center'
     });
     new QRCode(document.getElementById("qrcode"), "http://jindo.dev.naver.com/collie");
+
 </script>
 </body>
 </html>
