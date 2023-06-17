@@ -24,7 +24,6 @@ public class Comment {
 
     @ManyToOne
     private Blog blog;
-
     @OneToMany(mappedBy = "parentComment")
     private List<Comment> replyComments = new ArrayList<>();
     @ManyToOne

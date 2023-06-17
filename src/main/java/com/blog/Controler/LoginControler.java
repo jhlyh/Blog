@@ -40,6 +40,5 @@ public class LoginControler {
     public String loginout(HttpSession session) {
         session.removeAttribute("user");
         return "redirect:/adminlogin";
-
     }
 }
