@@ -315,8 +315,6 @@ w
 G.idea/sonarlint/issuestore/1/c/1c017db1ba8eaeba0ffbbb4928e087c8ae670d0d,2\e\2eba69b3a9ab4faf0e45ccf15ece1d0a9e37360a
 w
 G.idea/sonarlint/issuestore/b/e/be56b2b6f9f3b414eb3a469149758610276617cb,d\d\ddc9a39aacf169f252e6175ae7e5bee8e30ba662
-8
-blog.log,d\e\deca2f2edccf7f48e6943ec4418d368112f7cd63
 w
 G.idea/sonarlint/issuestore/a/8/a80d9ff6dbbb9cced568b3dc4cb38feca770410c,a\5\a52a767c4b64cc53e1de43fc84390e6d45d18878
 k
@@ -361,5 +359,3 @@ _
 /src/main/java/com/blog/dao/UserRespository.java,f\2\f2f5ad0132863f1e033e362e5d404147b0fce7b4
 ^
 .src/main/java/com/blog/dao/TagRespository.java,1\b\1b92656adf29bf39c6be281398cd3c59403093e3
-_
-/src/main/java/com/blog/dao/TypeRespositroy.java,3\8\38676c3d42fbc4cf6be356fc6d1d98818d08c8a7

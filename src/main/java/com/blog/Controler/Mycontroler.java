@@ -71,7 +71,9 @@ public class Mycontroler {
     }
 
     @RequestMapping("/archives")
-    public String archives() {
+    public String archives(@PageableDefault(size = 5, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable, Model model) {
+        model.addAttribute("page", blogServiceimpl.listBlog(pageable));
+        model.addAttribute("recommendblog", blogServiceimpl.listBlog(pageable));
         return "archives";
     }
 

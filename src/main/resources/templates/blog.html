@@ -217,7 +217,10 @@
         on: 'click',
         position: 'bottom center'
     });
-    let data = JSON.parse(localStorage.getItem("${blog.title}") || "[]")
+
+    let title = $('title').text()
+    console.log(title)
+    let data = JSON.parse(localStorage.getItem(title) || "[]")
 
     function addCom(val) {
         $('#allcomment').append(val)
@@ -246,7 +249,7 @@
                     </div>`
         addCom(html)
         data.push(html)
-        localStorage.setItem("${blog.title}", JSON.stringify(data))
+        localStorage.setItem(title, JSON.stringify(data))
     });
     $('.wechat').popup({
         popup: $('.wechat-qr'),
